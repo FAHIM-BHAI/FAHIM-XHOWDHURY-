@@ -1,59 +1,31 @@
 const fs = require("fs");
-const request = require("request");
 module.exports = {
-  config: {
-    name: "npx3",
-    version: "1.0.1",
-    prefix: false,
-    permssion: 0,
-    credits: "nayan",
-    description: "Fun",
-    category: "no prefix",
-    usages: "😒",
-    cooldowns: 5,
-  },
+  config:{
+	name: "npx3",
+        version: "1.0.1",
+        prefix: false,
+	permssion: 0,
+	credits: "Fahim", 
+	description: "Fun",
+	category: "no prefix",
+	usages: "",
+        cooldowns: 5, 
+},
 
-  handleEvent: async function({ api, event, client, __GLOBAL }) {
-    var { threadID, messageID } = event;
-    const content = event.body ? event.body : '';
-    const body = content.toLowerCase();
-    const NAYAN = ['https://i.imgur.com/LLucP15.mp4', 'https://i.imgur.com/DEBRSER.mp4'];
-    var rndm = NAYAN[Math.floor(Math.random() * NAYAN.length)];
+handleEvent: function({ api, event, client, __GLOBAL }) {
+	var { threadID, messageID } = event;
+  const content = event.body ? event.body : '';
+  const body = content.toLowerCase();
+	if (body.indexOf(" ")==0 || body.indexOf("🕵️‍♀️")==0 || body.indexOf("😡")==0 || body.indexOf(" ")==0) {
+		var msg = {
+				body: "জা্ঁন্ঁ তু্ঁমি্ঁ এ্ঁত্ঁ রা্ঁগ্ঁ ক্ঁর্ঁ কে্ঁন্ঁ__😫💔",
+				attachment: fs.createReadStream(__dirname + `/FAHIM/ragkro (1).mp3`)
+			}
+			api.sendMessage( msg, threadID, messageID);
+    api.setMessageReaction("🥹", event.messageID, (err) => {}, true)
+		}
+	},
+	start: function({ nayan }) {
 
-    
-    const media = await new Promise((resolve, reject) => {
-      request.get(
-        `${rndm}`,
-        { encoding: null },
-        (error, response, body) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(body);
-          }
-        }
-      );
-    });
-
-    if (
-      body.indexOf("🥰") == 0 ||
-      body.indexOf("🤩") == 0 ||
-      body.indexOf("😍") == 0 ||
-      body.indexOf(" ") == 0 ||
-      body.indexOf(" ") == 0 ||
-      body.indexOf(" ") == 0 ||
-      body.indexOf(" ") == 0 ||
-      body.indexOf(" ") == 0 ||
-      body.indexOf(" ") == 0 ||
-      body.indexOf(" ") == 0
-    ) {
-      var msg = {
-        body: "🖤🥀",
-        attachment: media,
-      };
-      api.sendMessage(msg, threadID, messageID);
-      api.setMessageReaction("🖤", event.messageID, (err) => {}, true);
-    }
-  },
-  start: function({ nayan }) {},
-};
+  }
+      }

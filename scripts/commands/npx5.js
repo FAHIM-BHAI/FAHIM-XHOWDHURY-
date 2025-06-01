@@ -1,7 +1,7 @@
 const fs = require("fs");
 module.exports = {
   config:{
-	name: "npx2",
+	name: "npx5",
         version: "1.0.1",
         prefix: false,
 	permssion: 0,
@@ -16,13 +16,13 @@ handleEvent: function({ api, event, client, __GLOBAL }) {
 	var { threadID, messageID } = event;
   const content = event.body ? event.body : '';
   const body = content.toLowerCase();
-	if (body.indexOf(" ")==0 || body.indexOf("🕵️‍♀️")==0 || body.indexOf("😭")==0 || body.indexOf(" ")==0) {
+	if (body.indexOf(" ")==0 || body.indexOf("🕵️‍♀️")==0 || body.indexOf("😒")==0 || body.indexOf(" ")==0) {
 		var msg = {
-				body:"কী্ঁ গো্ঁ তু্ঁমি্ঁ কা্ন্না্ঁ ক্ঁর্ঁতে্ঁচ্ঁ কে্ঁন্ঁ ☹😟😿",
-				attachment: fs.createReadStream(__dirname + `/FAHIM/kanna.mp3`)
+				body: "এ্ঁদি্ঁক্ঁ ও্ঁদি্ঁক্ঁ কি্ঁ দে্ঁখো্ঁ জা্ঁন্ঁ আ্ঁমি্ঁ তো্ঁ এ্ঁই্ঁদি্ঁকে্ঁ___🫣🤐",
+				attachment: fs.createReadStream(__dirname + `/FAHIM/adikodikkidekho.mp3`)
 			}
 			api.sendMessage( msg, threadID, messageID);
-    api.setMessageReaction("😰", event.messageID, (err) => {}, true)
+    api.setMessageReaction("👻", event.messageID, (err) => {}, true)
 		}
 	},
 	start: function({ nayan }) {
